@@ -1,83 +1,53 @@
-"use client"
-import { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Head from "next/head";
 import Link from "next/link";
 import { FaUserAlt } from "react-icons/fa";
 import { HiMail } from "react-icons/hi";
-// import Loading from "@/components/Loading";
-// import ErrorPage from "@/components/ErrorPage";
-// import RegClosed from "@/components/RegClosed";
-// import { doc, getDoc } from "@firebase/firestore";
-// import db from "../../../../utils/firebase";
-// import { registerAttendee } from "../../../../utils/util";
-// import { useRouter } from "next/navigation";
+import { doc, getDoc } from "@firebase/firestore";
+import db from "../../../utils/firebase";
+import { registerAttendee } from "../../../utils/util";
+import { useRouter } from "next/navigation";
+import RegClosed from "../../../components/RegClosed";
+import ErrorPage from "../../../components/ErrorPage";
+import Loading from "../../../components/Loading";
 
-// export async function getServerSideProps(context) {
-//    const docRef = doc(db, "events", context.query.id);
-//    const docSnap = await getDoc(docRef);
-//    let firebaseEvent = {};
+export async function getServerSideProps(context) {
+   const docRef = doc(db, "events", context.query.id);
+   const docSnap = await getDoc(docRef);
+   let firebaseEvent = {};
+   if (docSnap.exists()) {
+      firebaseEvent = docSnap.data();
+   } else {
+      console.log("No such document!");
+   }
+   return {
+      props: { event: firebaseEvent },
+   };
+}
 
-//    if (docSnap.exists()) {
-//       firebaseEvent = docSnap.data();
-//    } else {
-//       console.log("No such document!");
-//    }
-
-//    return {
-//       props: {
-//          event: firebaseEvent || {},
-//       },
-//    };
-// }
-
-const RegisterPage = () => {
+const RegisterPage = ({ event }) => {
    const [success, setSuccess] = useState(false);
    const [loading, setLoading] = useState(false);
    const [name, setName] = useState("");
    const [email, setEmail] = useState("");
-   const [event, setEvent] = useState({});
-   // const { query } = useRouter();
+   const { query } = useRouter();
 
+   const handleSubmit = (e) => {
+      e.preventDefault();
+      registerAttendee(name, email, query.id, setSuccess, setLoading);
+      setEmail("");
+      setName("");
+   };
+   if (loading) {
+      return <Loading title='Generating your ticket🤞🏼' />;
+   }
+   if (!event.title) {
+      return <ErrorPage />;
+   }
 
-   // useEffect(() => {
-   //    const fetchEventData = async () => {
-   //       try {
-   //          setLoading(true);
-   //          const docRef = doc(db, "events",);
-   //          const docSnap = await getDoc(docRef);
-
-   //          if (docSnap.exists()) {
-   //             setEvent(docSnap.data());
-   //          } else {
-   //             console.log("No such document!");
-   //          }
-   //       } catch (error) {
-   //          console.error("Error fetching event data:", error);
-   //       } finally {
-   //          setLoading(false);
-   //       }
-   //    };
-
-   //    fetchEventData();
-   // }, []);
-
-   // const handleSubmit = (e) => {
-   //    e.preventDefault();
-   //    registerAttendee(name, email, query?.id, setSuccess, setLoading);
-   //    setEmail("");
-   //    setName("");
-   // };
-
-   // if (loading) {
-   //    return <Loading title='Generating your ticket🤞🏼' />;
-   // }
-   // if (!event?.title) {
-   //    return <ErrorPage />;
-   // }
-
-   // if (event.disableRegistration) {
-   //    return <RegClosed event={event} />;
-   // }
+   if (event.disableRegistration) {
+      return <RegClosed event={event} />;
+   }
 
    return (
       <div>
@@ -95,7 +65,7 @@ const RegisterPage = () => {
                <h2 className='text-2xl font-medium mb-3'>Get your ticket 🎉</h2>
                <form
                   className='w-full flex flex-col justify-center'
-               // onSubmit={handleSubmit}
+                  onSubmit={handleSubmit}
                >
                   <label htmlFor='name'>Full name</label>
                   <div className='w-full relative'>
@@ -131,9 +101,7 @@ const RegisterPage = () => {
                </form>
                <div className='absolute bottom-5 left-5'>
                   <p className='opacity-50 text-sm'>
-                     <Link href='/'>
-                        {/* {event.title} */}
-                     </Link> &copy; Copyright{" "}
+                     <Link href='/'>{event.title}</Link> &copy; Copyright{" "}
                      {new Date().getFullYear()}{" "}
                   </p>
                </div>
@@ -141,11 +109,11 @@ const RegisterPage = () => {
             <div className='login md:w-[40%] h-[100vh] relative'>
                <div className='absolute bottom-5 right-5'>
                   <a
-                     href='https://github.com/mspsohan'
+                     href='https://github.com/dha-stix'
                      target='_blank'
                      className='text-gray-100'
                   >
-                     Built by Sohan Perves
+                     Built by David Asaolu
                   </a>
                </div>
             </div>
