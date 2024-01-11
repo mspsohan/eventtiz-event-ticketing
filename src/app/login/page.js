@@ -7,7 +7,6 @@ import { AiTwotoneLock } from "react-icons/ai";
 import { firebaseLoginUser } from "../../utils/util";
 import { useRouter } from "next/navigation";
 
-
 const Login = () => {
    const [email, setEmail] = useState("");
    const [password, setPassword] = useState("");
@@ -20,7 +19,7 @@ const Login = () => {
    return (
       <div>
          <Head>
-            <title>Login | EventTiz</title>
+            <title>Login | EventTizz</title>
             <meta
                name='description'
                content='An event ticketing system built with NextJS and Firebase'
@@ -77,7 +76,7 @@ const Login = () => {
                </form>
                <div className='absolute bottom-5 left-5'>
                   <p className='opacity-50 text-sm'>
-                     <Link href='/'>EventTiz</Link> &copy; Copyright{" "}
+                     <Link href='/'>EventTizz</Link> &copy; Copyright{" "}
                      {new Date().getFullYear()}{" "}
                   </p>
                </div>

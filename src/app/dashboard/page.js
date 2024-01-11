@@ -4,7 +4,6 @@ import Head from "next/head";
 import AuthNav from "../../components/AuthNav";
 import NoEvent from "../../components/NoEvent";
 import Events from "../../components/Events";
-
 import { auth } from "../../utils/firebase";
 import { getEvents } from "../../utils/util";
 import Loading from "../../components/Loading";
@@ -36,7 +35,7 @@ const Dashboard = () => {
    return (
       <div>
          <Head>
-            <title>Dashboard | EventTiz</title>
+            <title>Dashboard | EventTizz</title>
             <meta
                name='description'
                content='An event ticketing system built with NextJS and Firebase'

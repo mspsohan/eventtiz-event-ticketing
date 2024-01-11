@@ -28,7 +28,7 @@ const Register = () => {
    return (
       <div>
          <Head>
-            <title>Register | EventTiz</title>
+            <title>Register | EventTizz</title>
             <meta
                name='description'
                content='An event ticketing system built with NextJS and Firebase'
@@ -107,7 +107,7 @@ const Register = () => {
                </form>
                <div className='absolute bottom-5 left-5'>
                   <p className='opacity-50 text-sm'>
-                     <Link href='/'>EventTiz</Link> &copy; Copyright{" "}
+                     <Link href='/'>EventTizz</Link> &copy; Copyright{" "}
                      {new Date().getFullYear()}{" "}
                   </p>
                </div>

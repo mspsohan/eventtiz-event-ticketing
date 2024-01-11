@@ -7,15 +7,15 @@
 -  when someone registers via your invite (RSVP) link, they receive the event ticket in their email, including a passcode which you can use to verify their event ticket from your dashboard.
 -  The application also allows you as a user to view the number of people who registered for your event, validate an attendee's ticket via the passcode they receive, and also disable the registration link when you have enough attendees. You can also delete an event after it has occurred.
 
-<img width="1264" alt="Event ticketing system" src="https://github.com/mspsohan/">
+<img width="1264" alt="Event ticketing system" src="./src/images/eventtizz.jpg">
 
 ## Live Demo
 
-[View Live Version](https://eventtizz.vercel.app)
+[View Live Version](https://eventtizz-msp-sohan.vercel.app)
 
 ## Installation
 
--  Clone the project repository. Don't forget to star the repo 😉
+-  Clone the project repository.
 -  Run `npm install` to install its dependencies.
 -  Start the development server by running `npm run dev`
 

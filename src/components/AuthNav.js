@@ -20,7 +20,7 @@ const AuthNav = ({ user }) => {
 					className='text-xl font-bold 
             '
 				>
-					EventTiz
+					EventTizz
 				</h1>
 			</Link>
 			<div className='md:flex hidden items-center justify-between'>
