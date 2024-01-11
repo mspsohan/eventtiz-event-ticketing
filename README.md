@@ -1,36 +1,31 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Event ticketing application with Next.js and Firebase
 
-## Getting Started
+### The application does the following:
 
-First, run the development server:
+-  authenticates users via Email and Password with Firebase,
+-  allows users to create events and generate an RSVP or registration link to share with friends or the public.
+-  when someone registers via your invite (RSVP) link, they receive the event ticket in their email, including a passcode which you can use to verify their event ticket from your dashboard.
+-  The application also allows you as a user to view the number of people who registered for your event, validate an attendee's ticket via the passcode they receive, and also disable the registration link when you have enough attendees. You can also delete an event after it has occurred.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+<img width="1264" alt="Event ticketing system" src="https://github.com/mspsohan/">
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Live Demo
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+[View Live Version](https://eventtizz.vercel.app)
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Installation
 
-## Learn More
+-  Clone the project repository. Don't forget to star the repo 😉
+-  Run `npm install` to install its dependencies.
+-  Start the development server by running `npm run dev`
 
-To learn more about Next.js, take a look at the following resources:
+## Tools
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+-  [NextJS 14](https://nextjs.org/docs)
+-  [Tailwind CSS](https://tailwindcss.com/)
+-  [Firebase](https://console.firebase.google.com)
+-  [React Table](https://react-table-v7.tanstack.com)
+-  [React Icons](https://react-icons.github.io/react-icons)
+-  [EmailJS](https://www.emailjs.com)
+-  [React Toastify](https://fkhadra.github.io/react-toastify/introduction)
+-  [React Copy To Clipboard](https://github.com/nkbt/react-copy-to-clipboard)
