@@ -1,4 +1,3 @@
-"use client"
 import React from "react";
 import Link from "next/link";
 
@@ -17,6 +16,11 @@ const Hero = () => {
 			<p className='mb-6 md:text-center md:text-lg md:text-gray-100 text-white'>
 				Dont miss out on the memories - grab your tickets now!
 			</p>
+			<Link href='/register'>
+				<button className='bg-white md:px-6 px-4 py-4 text-[#C07F00] rounded font-bold'>
+					CREATE YOUR EVENT TICKETS
+				</button>
+			</Link>
 			<Link href='/register'>
 				<button className='bg-white md:px-6 px-4 py-4 text-[#C07F00] rounded font-bold'>
 					CREATE YOUR EVENT TICKETS

@@ -1,11 +1,9 @@
 "use client"
-
 import Head from "next/head";
 import Link from "next/link";
 import { HiMail } from "react-icons/hi";
 import { AiTwotoneLock, AiFillCheckCircle } from "react-icons/ai";
 import { firebaseCreateUser } from "../../utils/util";
-
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 

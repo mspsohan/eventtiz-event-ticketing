@@ -1,36 +1,72 @@
 "use client"
-import React, { useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import Link from "next/link";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { MdCancel } from "react-icons/md";
 import { BsGithub, BsTwitter } from "react-icons/bs";
+import { onAuthStateChanged } from "firebase/auth";
+import { auth } from "@/utils/firebase";
+import { useRouter } from "next/navigation";
+import { firebaseLogOut } from "@/utils/util";
 
 const Nav = () => {
 	const [hamburger, setHamburger] = useState(false);
+	const [user, setUser] = useState({});
+	console.log(user)
+
+	const isUserLoggedIn = useCallback(() => {
+		onAuthStateChanged(auth, (user) => {
+			if (user) {
+				setUser({ email: user.email, uid: user.uid });
+			}
+		});
+	}, []);
+
+	useEffect(() => {
+		isUserLoggedIn();
+	}, [isUserLoggedIn]);
+
+	const router = useRouter();
+
+	const signOut = () => firebaseLogOut(router);
+
 	return (
 		<div className='h-[10vh] flex items-center justify-between px-[20px] sticky top-0'>
 			<Link href='/'>
-				<h1
-					className='text-xl font-bold text-gray-300
-            '
-				>
+				<h1 className='text-xl font-bold text-gray-300'>
 					EventTizz
 				</h1>
 			</Link>
 			<div className='md:flex items-center justify-between hidden space-x-8'>
-				<Link href='/login' className=' text-gray-400 hover:text-white'>
-					Login
-				</Link>
-				<Link href='/register' className='text-gray-400 hover:text-white'>
-					Register
-				</Link>
+				{
+					user ? (
+						<div className='md:flex hidden items-center justify-between'>
+							<p className='mr-4 text-white hover:text-[#9E6F21]'>
+								{user["email"]}
+							</p>
+
+							<button
+								className='mr-4 text-[#9E6F21] text-medium hover:text-white'
+								onClick={signOut}
+							>
+								SIGN OUT
+							</button>
+						</div>
+					) : <>
+						<Link href='/login' className=' text-gray-400 hover:text-white'>
+							Login
+						</Link>
+						<Link href='/register' className='text-gray-400 hover:text-white'>
+							Register
+						</Link>
+					</>
+				}
 				<a href='https://github.com/mspsohan' target='_blank'>
 					<BsGithub className='text-gray-400 text-2xl hover:text-[#C07F00]' />
 				</a>
 			</div>
 			<div className='md:hidden block'>
-				<GiHamburgerMenu
-					className='cursor-pointer text-2xl text-gray-400'
+				<GiHamburgerMenu className='cursor-pointer text-2xl text-gray-400'
 					onClick={() => setHamburger(true)}
 				/>
 			</div>
@@ -50,10 +86,10 @@ const Nav = () => {
 							Register
 						</Link>
 						<div className='flex items-center space-x-6'>
-							<a href='https://github.com/dha-stix' target='_blank'>
+							<a href='https://github.com/mspsohan' target='_blank'>
 								<BsGithub className='text-white text-2xl hover:text-[#C07F00]' />
 							</a>
-							<a href='https://twitter.com/dayvid_JS' target='_blank'>
+							<a href='https://twitter.com/mspsohan' target='_blank'>
 								<BsTwitter className='text-white text-2xl hover:text-[#C07F00]' />
 							</a>
 						</div>

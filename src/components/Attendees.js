@@ -19,7 +19,7 @@ const Attendees = ({
 		() => [
 			{
 				Header: "Passcode",
-				accessor: "passcode", // accessor is the "key" in the data
+				accessor: "passcode",
 			},
 			{
 				Header: "Name",

@@ -4,8 +4,7 @@ const Footer = () => {
 	return (
 		<div className='w-full bg-[#edc16a] flex flex-col space-y-4 items-center justify-center p-6'>
 			<p>
-				{" "}
-				Powered by{" "}
+				Powered by
 				<a
 					href='https://github.com/mspsohan'
 					target='_blank'

@@ -1,4 +1,3 @@
-"use client"
 import React from "react";
 import createimage from "../images/createimage.svg";
 import event from "../images/event.svg";

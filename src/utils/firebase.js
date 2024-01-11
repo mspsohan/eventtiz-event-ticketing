@@ -5,13 +5,12 @@ import { getAuth } from "firebase/auth";
 import { getStorage } from "firebase/storage";
 
 const firebaseConfig = {
-	apiKey: "AIzaSyCiTxiWzxAOndzpeNyy3TuLeT9bxnM0ra4",
-	authDomain: "eventtiz.firebaseapp.com",
-	projectId: "eventtiz",
-	storageBucket: "eventtiz.appspot.com",
-	messagingSenderId: "600043838110",
-	appId: "1:600043838110:web:8e094eec1f41d6c353f98f",
-	measurementId: "G-25R0S4XSE6",
+	apiKey: "AIzaSyBgGO4_X9vLim7Bv_-qxVLTHQFew1vfhAA",
+	authDomain: "eventtizz.firebaseapp.com",
+	projectId: "eventtizz",
+	storageBucket: "eventtizz.appspot.com",
+	messagingSenderId: "144901565155",
+	appId: "1:144901565155:web:3a018a98940c385e36b3d6",
 };
 
 // Initialize Firebase

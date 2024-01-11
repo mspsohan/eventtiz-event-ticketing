@@ -25,7 +25,7 @@ const AuthNav = ({ user }) => {
 			</Link>
 			<div className='md:flex hidden items-center justify-between'>
 				<p className='mr-4 text-gray-400 hover:text-black'>
-					{user["email"]?.substring(0, 6)}
+					{user["email"]}
 				</p>
 
 				<button
